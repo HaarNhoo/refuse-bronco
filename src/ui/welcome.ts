@@ -8,16 +8,18 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
     <div class="illustration">
-      <img src="assets/mustang-intro.webp" />
+      <img src="assets/bronco.webp" />
     </div>
     <div class="message">
-      <h1>Unofficial Fender FUSE replacement</h1>
+      <h1>Unofficial Fender FUSE replacement for Bronco 40</h1>
 
       <p>
         This tool restores the editing functionality lost when Fender
         <a href="https://support.fender.com/en-us/knowledgebase/article/KA-01924" target="_blank">discontinued</a>
         their FUSE application.
       </p>
+
+      <p>This is the Bronco 40 dedicated version.</p>
 
       <p>
         It provides a simple interface to manage your presets, configure signal chains, and access the "hidden" amp
@@ -46,10 +48,9 @@ import { CommonModule } from '@angular/common';
       }
       <p class="disclaimer">
         <em
-          >This is a hobby project, not affiliated with Fender in any way. Please
-          <a href="https://github.com/jtangelder/mustang" target="_blank">contribute on GitHub</a>
-          if you find it useful.</em
-        >
+          >This fork is based on the amazing work of
+          <a href="https://github.com/jtangelder/mustang" target="_blank">jtangelder on GitHub</a>
+        </em>
       </p>
     </div>
   `,

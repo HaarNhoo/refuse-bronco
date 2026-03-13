@@ -1,3 +1,6 @@
+@use "@fontsource-variable/material-symbols-outlined"; // Defaults to wght axis
+@use "@fontsource-variable/material-symbols-outlined/wght.css"; // Specify axis
+
 :root {
   --primary: #3498db;
   --secondary: #2ecc71;
@@ -10,6 +13,13 @@
   --text-muted: #888;
 }
 
+@font-face {
+  font-family: 'Outfit';
+  src: url('assets/fonts/Outfit.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   -webkit-font-smoothing: antialiased;
 }
@@ -18,7 +28,7 @@ body,
 input,
 button {
   font:
-    1em/1.5 Outfit,
+    1em/1.5 'Outfit',
     sans-serif;
 }
 
@@ -43,7 +53,7 @@ h3 {
 
 .icon {
   display: inline-block;
-  font: 0.95em 'Material Symbols Outlined';
+  font: 0.95em 'Material Symbols Outlined Variable';
   line-height: inherit;
   vertical-align: middle;
 }

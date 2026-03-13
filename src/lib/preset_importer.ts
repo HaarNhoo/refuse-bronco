@@ -5,23 +5,30 @@ import { debug } from './helpers';
 
 // ID Mapping from Fuse XML to Firmware IDs
 // prettier-ignore
+// ID Mapping from Fuse XML to Firmware IDs
+// prettier-ignore
 const ID_MAP: Record<number, number> = {
-  // Standard Amps
-  0: 0x6700, 1: 0x6400, 2: 0x7c00, 3: 0x5300, 4: 0x6a00, 5: 0x7500,
-  6: 0x7200, 7: 0x6100, 8: 0x7900, 9: 0x5e00, 10: 0x5d00, 11: 0x6d00,
-  // V2 Amps
-  100: 0xf100, 101: 0xf600, 102: 0xf900, 103: 0xff00, 104: 0xfc00,
-  105: 0x5300, 106: 0x6a00, 107: 0x7500, 108: 0x7200,
-  // Stomps (Legacy)
-  19: 0x3c00, 20: 0x4900, 21: 0x4a00, 22: 0x1a00, 23: 0x1c00, 24: 0x0700, 25: 0x8800,
-  // V2 Stomps
-  109: 0x0301, 110: 0xba00, 111: 0x1001, 112: 0x1101, 113: 0x0f01,
-  // Mods, Delays, Reverbs
-  26: 0x1200, 27: 0x1300, 28: 0x1800, 29: 0x1900, 30: 0x2d00, 31: 0x4000,
-  32: 0x4100, 33: 0x2200, 34: 0x2900, 35: 0x4f00, 36: 0x1f00,
-  37: 0x1600, 38: 0x2b00, 39: 0x1500, 40: 0x4600, 41: 0x4800,
-  42: 0x2400, 43: 0x3a00, 44: 0x2600, 45: 0x3b00, 46: 0x4e00, 47: 0x4b00,
-  48: 0x4c00, 49: 0x4d00, 50: 0x2100, 51: 0x0b00
+  // --- Bronco Amps (Correspondance XML Fuse -> Firmware) ---
+  150: 0x9600, // Rumble
+  151: 0x9700, // Bassman TV
+  152: 0x9800, // Bassman 300
+  153: 0x9900, // SWR Redhead
+  154: 0x9a00, // Rockin' Peg
+  155: 0x9b00, // KGB 800
+  157: 0xbd00, // Monster
+  1:   0x6400, // '59 Bassman (Partagé avec Mustang)
+
+  // --- Bronco Specific Effects ---
+  156: 0xbc00, // Modern Bass Overdrive
+  158: 0xbb00, // Octave Down
+  159: 0xbe00, // Envelope Filter
+  160: 0xc600, // Graphic EQ
+  161: 0xc500, // Parametric EQ
+
+
+  // --- Effects Standards ---
+  19: 0x3c00, 20: 0x4900, 21: 0x4a00, 22: 0x1a00, 24: 0x0700,
+  26: 0x1200, 31: 0x4000, 37: 0x1600, 42: 0x2400, 50: 0x2100
 };
 
 export class PresetImporter {

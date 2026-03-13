@@ -58,16 +58,30 @@ import { EffectService } from '../services/effect.service';
   `,
   styles: [
     `
-      .editor-container {
-        padding: 20px;
-        max-width: 800px;
-        margin: 0 auto;
+      /* On s'assure que l'application occupe bien tout l'écran */
+      :host {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background: #121212;
       }
+
+      /* L'éditeur (boutons de l'ampli ou des pédales) */
+      .editor-container {
+        flex: 1; /* Prend l'espace restant sous la chaîne */
+        padding: 10px; /* Padding réduit pour gagner de la place sur Android */
+        max-width: 100%; /* Largeur totale du téléphone */
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+
+      /* Message quand rien n'est sélectionné */
       .empty-state {
         text-align: center;
-        padding: 50px;
+        padding: 40px 20px;
         color: #666;
         font-style: italic;
+        font-size: 0.9rem;
       }
     `,
   ],
