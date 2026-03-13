@@ -71,16 +71,16 @@ export const EFFECT_MODELS: Record<string, ModelDef> = {
   PITCH_SHIFT_DLY: m(0xBB00, 'Pitch Shift Delay', DspType.DELAY, ['Level', 'Pitch', 'Detune', 'Fdback', 'Pre Dly']),
 
   // --- REVERB (Groupées en DspType.DELAY) ---
-  SMALL_HALL: m(0x2400, 'Small Hall Reverb', DspType.DELAY, ['Level', 'Decay', 'Dwell', 'Diffusn', 'Tone']),
-  LARGE_HALL: m(0x3A00, 'Large Hall Reverb', DspType.DELAY, ['Level', 'Decay', 'Dwell', 'Diffusn', 'Tone']),
-  SMALL_ROOM: m(0x2600, 'Small Room Reverb', DspType.DELAY, ['Level', 'Decay', 'Dwell', 'Diffusn', 'Tone']),
-  LARGE_ROOM: m(0x3B00, 'Large Room Reverb', DspType.DELAY, ['Level', 'Decay', 'Dwell', 'Diffusn', 'Tone']),
-  SMALL_PLATE: m(0x4E00, 'Small Plate Reverb', DspType.DELAY, ['Level', 'Decay', 'Dwell', 'Diffusn', 'Tone']),
-  LARGE_PLATE: m(0x4B00, 'Large Plate Reverb', DspType.DELAY, ['Level', 'Decay', 'Dwell', 'Diffusn', 'Tone']),
-  AMBIENT: m(0x4C00, 'Ambient Reverb', DspType.DELAY, ['Level', 'Decay', 'Dwell', 'Diffusn', 'Tone']),
-  ARENA: m(0x4D00, 'Arena Reverb', DspType.DELAY, ['Level', 'Decay', 'Dwell', 'Diffusn', 'Tone']),
-  F_SPRING_63: m(0x2100, '\'63 Fender Spring Reverb', DspType.DELAY, ['Level', 'Decay', 'Dwell', 'Diffusn', 'Tone']),
-  F_SPRING_65: m(0x0B00, '\'65 Fender Spring Reverb', DspType.DELAY, ['Level', 'Decay', 'Dwell', 'Diffusn', 'Tone']),
+  SMALL_HALL: m(0x2400, 'Small Hall Reverb', DspType.REVERB, ['Level', 'Decay', 'Dwell', 'Diffusn', 'Tone']),
+  LARGE_HALL: m(0x3A00, 'Large Hall Reverb', DspType.REVERB, ['Level', 'Decay', 'Dwell', 'Diffusn', 'Tone']),
+  SMALL_ROOM: m(0x2600, 'Small Room Reverb', DspType.REVERB, ['Level', 'Decay', 'Dwell', 'Diffusn', 'Tone']),
+  LARGE_ROOM: m(0x3B00, 'Large Room Reverb', DspType.REVERB, ['Level', 'Decay', 'Dwell', 'Diffusn', 'Tone']),
+  SMALL_PLATE: m(0x4E00, 'Small Plate Reverb', DspType.REVERB, ['Level', 'Decay', 'Dwell', 'Diffusn', 'Tone']),
+  LARGE_PLATE: m(0x4B00, 'Large Plate Reverb', DspType.REVERB, ['Level', 'Decay', 'Dwell', 'Diffusn', 'Tone']),
+  AMBIENT: m(0x4C00, 'Ambient Reverb', DspType.REVERB, ['Level', 'Decay', 'Dwell', 'Diffusn', 'Tone']),
+  ARENA: m(0x4D00, 'Arena Reverb', DspType.REVERB, ['Level', 'Decay', 'Dwell', 'Diffusn', 'Tone']),
+  F_SPRING_63: m(0x2100, '\'63 Fender Spring Reverb', DspType.REVERB, ['Level', 'Decay', 'Dwell', 'Diffusn', 'Tone']),
+  F_SPRING_65: m(0x0B00, '\'65 Fender Spring Reverb', DspType.REVERB, ['Level', 'Decay', 'Dwell', 'Diffusn', 'Tone']),
   };
 
 //Bronco spécific
