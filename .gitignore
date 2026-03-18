@@ -26,8 +26,5 @@ coverage
 
 Mode_emploi.md
 .conda*
-.gitignore
-node_modules
-
-*run-npm*
 run-npm.bat
+
