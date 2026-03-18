@@ -1,4 +1,7 @@
+:: Fichier bat pour lancer une version portable de node.js et  ne pas avoir a installer npm
+
 @echo off
+
 :: Configuration du chemin vers votre installation portable de Node
 set "NODE_DIR=C:\Users\alapios\Documents\__Programmes\node-v25.8.1-win-x64"
 
