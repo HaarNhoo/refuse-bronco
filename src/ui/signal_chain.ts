@@ -164,35 +164,35 @@ import { DspType, type EffectSettings, type AmpSettings, type CabinetDef } from 
       /* L'Amplificateur au centre */
       .amplifier {
         position: relative;
-        overflow: hidden; /* Pour que l'image ne dépasse pas les bords arrondis */
-        background: #000;
+        background: #111;
         border: 2px solid #555;
-        width: 120px;
-        height: 90px;
+        width: 300px; /* Largeur fixe pour la ligne d'ampli */
+        height: auto; /* Crucial : permet au container de grandir */
+        min-height: 60px; /* Sécurité si l'image ne charge pas */
         display: flex;
-        align-items: center;
-        justify-content: center;
+        flex-direction: column;
         border-radius: 8px;
+        overflow: hidden; /* Coupe l'image selon les bords arrondis */
         cursor: pointer;
+        z-index: 10;
+        flex-shrink: 0; /* Empêche l'écrasement en largeur */
       }
 
       .amp-visual {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Remplit le carré proprement */
-        z-index: 1;
+        display: block;
+        width: 100%; /* L'image s'étire sur toute la largeur */
+        height: auto; /* L'image garde son ratio (pas de déformation) */
+        /* Note : on ne met plus position: absolute ici */
       }
 
       .amp-overlay {
-        position: absolute;
+        position: absolute; /* Le texte "flotte" sur l'image */
         bottom: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.7); /* Bandeau noir semi-transparent */
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 4px 0;
         z-index: 2;
-        padding: 2px 0;
         text-align: center;
       }
 
@@ -346,25 +346,23 @@ export class SignalChainComponent {
   getAmpImage(modelName: string | undefined): string {
     if (!modelName) return '';
 
-    // Normalisation du nom pour la recherche
-    const name = modelName.toLowerCase().replace(/\s/g, '');
+    const name = modelName.toLowerCase().replace(/[\s']/g, '');
 
     const imageMap: Record<string, string> = {
-      rumble: 'FUSE_2.5_Rumble_amp.png',
-      bassmantv: 'FUSE_2.5_BassmanTV_amp.png',
-      monster: 'FUSE_2.5_Monster_amp.png',
-      rockinpeg: 'FUSE_2.5_RockinPeg_amp.png',
-      kgb800: 'FUSE_2.5_KGB800_amp.png',
-      bassman300: 'FUSE_2.5_Bassman300_amp.png',
-      redhead: 'FUSE_2.5_Redhead_amp.png',
-      '57twin': 'Fender_Fuse-v2_57 Twin.png',
-      '65deluxereverb': 'FUSE_2_65_deluxe_reverb_amp.png',
-      bassman: 'FUSE_2_fender_bassman_amp.png',
-      studiopreamp: 'FUSE_Studio_Preamp.png',
-      // Ajoute les autres ici si besoin
+      fenderrumble: 'Rumble_amp.png',
+      fenderbassmantv: 'BassmanTV_amp.png',
+      monster: 'Monster_amp.png',
+      rockinpeg: 'RockinPeg_amp.png',
+      kgb800: 'KGB800_amp.png',
+      fenderbassman300: 'Bassman300_amp.png',
+      swrredhead: 'Redhead_amp.png',
+      '57twin': '57 Twin.png',
+      '65deluxereverb': '65_deluxe_reverb_amp.png',
+      '59bassman': 'bassman_amp.png',
     };
 
-    const fileName = imageMap[name] || 'FUSE_Studio_Preamp.png';
-    return `assets/Amplifiers/${fileName}`;
+    const fileName = imageMap[name] || 'Studio_Preamp.png';
+    // On ajoute un "/" au début pour garantir le chemin absolu depuis la racine
+    return `/assets/Amplifiers/${fileName}`;
   }
 }

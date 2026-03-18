@@ -9,9 +9,9 @@ lerna-debug.log*
 .angular
 node_modules
 dist-ssr
-dist
 coverage
 *.local
+
 
 # Editor directories and files
 .vscode/*
@@ -24,4 +24,9 @@ coverage
 *.sln
 *.sw?
 
-.conda/
+run-npm.bat
+Mode_emploi.md
+.conda*
+.gitignore
+node_modules
+

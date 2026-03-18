@@ -15,6 +15,12 @@ The communication happens via USB HID (Human Interface Device).
 
 All multi-byte integer values are **Little Endian** unless specified otherwise (Note: Model IDs are typically handled as Big Endian in the codebase for display/lookup, e.g., `0x6700`).
 
+
+- **Vendor ID (VID):** `0x1ed8` (Fender)
+- **Product ID (PID):** `0x0010` (Bronco 40)
+- **Packet Size:** 64 bytes
+- **Report ID:** `0`
+
 ---
 
 ## 2. Connection Lifecycle
@@ -189,6 +195,8 @@ Received when the user selects a preset on the amp.
 
 | ID (Hex) | Name              | Based On                     |
 | :------- | :---------------- | :--------------------------- |
+|          |                   | Mustang amps                 |
+| :------- | :---------------- | :--------------------------- |
 | `0x6700` | '57 Deluxe        | 1957 Fender Deluxe           |
 | `0x6400` | '59 Bassman       | 1959 Fender Bassman          |
 | `0x7C00` | '57 Champ         | 1957 Fender Champ            |
@@ -206,11 +214,25 @@ Received when the user selects a preset on the amp.
 | `0xF900` | '60s Thrift       | Sears 1964 Silvertone        |
 | `0xFF00` | British Watts     | HiWatt 100 DR103             |
 | `0xFC00` | British Colour    | Orange Custom Shop           |
+| :------- | :------------- | :------------------------------------- |
+|          |                | Bronco 40 amps |
+| :------- | :------------- | :------------------------------------- |
+| `0x0100` | Rumble         | Fender Rumble Series                   |
+| `0x6400` | '59 Bassman    | 1959 Fender Bassman (Shared w/ Mustang)|
+| `0x0200` | Bassman TV     | Fender Bassman TV Series               |
+| `0x0300` | Bassman 300    | Fender Bassman 300 Tube Head           |
+| `0x0400` | Redhead        | SWR Redhead                            |
+| `0x0500` | Rockin' Peg    | Ampeg SVT                              |
+| `0x0600` | KGB800         | Gallien-Krueger 800RB                  |
+| `0x0700` | Monster        | High-Gain Custom Bass Amp              |
+| `0xF100` | Studio Preamp  | Direct Signal (Clean)                  |
 
 ### 6.2 Cabinets
 
 | ID     | Name                | Based On                     |
 | :----- | :------------------ | :--------------------------- |
+|        |                     | Mustang Cabinets             |
+| :------| :----------------   | :--------------------------- |
 | `0x00` | Off                 | -                            |
 | `0x01` | 1x12 '57 Deluxe     | Fender '57 Deluxe            |
 | `0x02` | 4x10 '59 Bassman    | Fender '59 Bassman           |
@@ -228,6 +250,18 @@ Received when the user selects a preset on the amp.
 | `0x0e` | 2x12 '60s Thrift    | Sears Silvertone Twin        |
 | `0x0f` | 4x12 British Watts  | HiWatt 4x12                  |
 | `0x10` | 4x12 British Colour | Orange 4x12                  |
+| :----- | :------------------ | :--------------------------- |
+|        |                     | Bronco 40 Cabinets           |
+| :----- | :------------------ | :--------------------------- |
+| `0x00` | Off / Direct        | No Cabinet Emulation         |
+| `0x11` | Rumble 1x10         | Fender Special Design 10"    |
+| `0x02` | 4x10 Bassman        | Fender '59 Bassman 4x10      |
+| `0x12` | 2x10 Bassman TV     | Fender Bassman TV 2x10       |
+| `0x13` | 4x10 Bassman 300    | Fender Bassman 300 Cab       |
+| `0x14` | 2x10 Redhead        | SWR 2x10 Horn Loaded         |
+| `0x15` | 8x10 Rockin' Peg    | Ampeg SVT-810E               |
+| `0x16` | 4x10 KGB            | Gallien-Krueger 410RBH       |
+| `0x17` | 4x10 Monster        | Heavy Duty 4x10              |
 
 ### 6.3 Stomp Effects (`0x06`)
 
@@ -290,3 +324,7 @@ Received when the user selects a preset on the amp.
 | `0x4D00` | Arena       | Generic Arena / Stadium            |
 | `0x2100` | '63 Spring  | 1963 Fender Spring Reverb Unit     |
 | `0x0B00` | '65 Spring  | 1965 Fender Spring Reverb (In-Amp) |
+
+### Bronco 40 effects : see in /src/models.ts
+
+

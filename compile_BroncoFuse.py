@@ -53,13 +53,14 @@ NUIKTA_COMMAND = [
     "--enable-plugin=tk-inter",
 
     # --- includes ---
-    "--include-data-dir=C:/Users/alapios/Documents/Programmes_C/refuse-bronco/src/assets=assets",
+    # "--include-data-dir=C:/Users/alapios/Documents/Programmes_C/refuse-bronco/src/assets=src/assets",
     "--include-data-dir=C:/Users/alapios/Documents/Programmes_C/refuse-bronco/dist/BroncoFuse=dist/BroncoFuse",
     # "--noinclude-data-file=**/__pycache__/**",
 
     # --- outputs ---
     "--remove-output",
     "--windows-console-mode=disable",
+    # "--windows-console-mode=force",
     f"--output-dir=Compile_{__tool_name__}",
     f"--output-filename={__tool_name__}",
 
@@ -78,7 +79,7 @@ NUIKTA_COMMAND = [
 
 def run_compilation():
     """Lance la commande Nuitka."""
-    print(f"🚀 Lancement de la compilation Nuitka...")
+    print("🚀 Lancement de la compilation Nuitka...")
     print(f"Commande : {' '.join(NUIKTA_COMMAND)}\n")
 
     try:
@@ -87,16 +88,17 @@ def run_compilation():
         print("\n✅ Compilation Nuitka terminée avec succès.")
         return True
     except subprocess.CalledProcessError as e:
-        print(f"\n❌ ERREUR: La compilation Nuitka a échoué.", file=sys.stderr)
+        print("\n❌ ERREUR: La compilation Nuitka a échoué.", file=sys.stderr)
         print(e, file=sys.stderr)
         return False
     except FileNotFoundError:
-        print(f"\n❌ ERREUR: Commande 'python' ou 'nuitka' non trouvée.", file=sys.stderr)
+        print("\n❌ ERREUR: Commande 'python' ou 'nuitka' non trouvée.", file=sys.stderr)
         print("Assurez-vous que Nuitka est installé et que Python est dans votre PATH.", file=sys.stderr)
         return False
 
 
 def main():
+    """Main function."""
     start = datetime.now()
     # 1. Lancer la compilation
     if run_compilation():
